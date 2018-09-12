@@ -110,11 +110,6 @@ html, body {
   font-family: 'ProductSans', sans-serif;
   font-size: 100px;
 }
-
-#landing .title img {
-  transform: translateY(30px);
-}
-
 #landing .sub-text {
   font-size: 25px;
   text-align: right;
@@ -209,17 +204,6 @@ nav div:not(.nav-line):hover {
   margin: 20px;
 }
 
-#sponsors {
-  text-align: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-#sponsors .title {
-  margin: 20px;
-}
-
 #contact {
   display: flex;
   justify-content: center;
@@ -245,8 +229,13 @@ nav div:not(.nav-line):hover {
   margin-bottom: 30px;
 }
 
+.gdg-logo img {
+  height: 120px;
+  margin: 10px 30px;
+}
+
 .heart {
-  font-size: 35px;
+  font-size: 30px;
   display: inline-block;
   color: #ea4335;
   animation: heartbeat 1.5s infinite;
@@ -376,13 +365,13 @@ nav.nav-mobile div:not(.nav-line) {
 }
 
 #about .content {
-  font-size: 16px;
+  font-size: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
   .vertical-scroll-hider {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 50px);
   }
 
   #landing .title {
@@ -402,29 +391,40 @@ nav.nav-mobile div:not(.nav-line) {
     font-size: 50px;
   }
 
-  #landing .title img {
-    height: 50px;
-    transform: translateY(10px);
-  }
-
   .slide {
     flex-direction: column;
   }
 
-  .card {
-    border-radius: 0;
-    background: transparent;
-    height: 50vh;
-    margin-top: 30px;
-  }
-
   #sessions, #speakers {
     background: transparent;
-
+    transform: none !important;
+    
+  }
+    
+  #sessions .card-left, #speakers .card-left {
+    background: transparent !important;
+    border-radius: 0;
+    background: none;
+    max-height: 150px;
+    box-shadow: none;
+    transform: none;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 60px 60px 0;
+    text-align: center;
   }
 
-  .card-left > div {
-    display: none;
+  #sessions .card-left img, #speakers .card-left img {
+    width: 60px;
+    margin-right: 20px;
+  }
+
+  #sessions .card:not(.card-left), #speakers .card:not(.card-left) {
+    width: 95%;
+    margin-bottom: 2.5%;
+    box-shadow: 0px 0px 10px 2px rgba(0 ,0 ,0, 0.1);
   }
 
 }
@@ -436,12 +436,7 @@ nav.nav-mobile div:not(.nav-line) {
   }
 
   #landing .title {
-    font-size: 40px;
-  }
-
-  #landing .title img {
-    height: 40px;
-    transform: translateY(5px);
+    font-size: 70px;
   }
 
   #landing .sub-text {
@@ -455,6 +450,14 @@ nav.nav-mobile div:not(.nav-line) {
 
   #about .content {
     font-size: 16px;
+  }
+
+  .gdg-logo img {
+    height: 75px;
+  }
+
+  #contact .sub-text {
+    padding: 0 30px;
   }
 
 }

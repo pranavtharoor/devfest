@@ -44,11 +44,11 @@ window.onload = () => {
   });
   document.querySelector('#contact')
   .addEventListener('mousemove', function(e) {
-      document.querySelector('.gdg-logo img').style.transform = `perspective(60px) rotateX(${
+      document.querySelectorAll('.gdg-logo img').forEach(el => el.style.transform = `perspective(60px) rotateX(${
         ((window.innerHeight / 2 - e.pageY) / this.clientHeight * 5)
       }deg) rotateY(${
         -((window.innerWidth / 2 - e.pageX) / this.clientWidth * 5)
-      }deg) translateZ(0) scale(1.0, 1.0)`;
+      }deg) translateZ(0) scale(1.0, 1.0)`);
   });
   var sections = [...document.querySelector('.scroll').children].reduce((acc, cur) => [...acc, ...([...cur.classList].includes('has-children') ? [...cur.children[0].children].map(ele => ({ element: ele, id: ele.getAttribute('id'), slide: true })) : [{ element: cur, id: cur.getAttribute('id') }])], []);
   var currentSection = 0;
@@ -79,7 +79,7 @@ window.onload = () => {
     document.querySelector('.light-box').style.zIndex = 0;
     document.querySelector('.light-box').style.opacity = 0;
     document.querySelector('nav').style.width = 0;
-    document.querySelector('.gdg-logo img').style.transform = 'none';
+    document.querySelectorAll('.gdg-logo img').forEach(el => el.style.transform = 'none');
     if (e.deltaY < 0 && currentSection - 1 >= 0 && !scrolled) {
       scrolled = true;
       setTimeout(() => { scrolled = false }, 800);
@@ -123,7 +123,7 @@ window.onload = () => {
     document.querySelector('.light-box').style.zIndex = 0;
     document.querySelector('.light-box').style.opacity = 0;
     document.querySelector('nav').style.width = 0;
-    document.querySelector('.gdg-logo img').style.transform = 'none';
+    document.querySelectorAll('.gdg-logo img').forEach(el => el.style.transform = 'none');
     var changeY = startY - e.changedTouches[0].pageY
     var changeX = startX - e.changedTouches[0].pageX
     var change = Math.abs(changeX) > Math.abs(changeY) ? changeX : changeY

@@ -91,6 +91,7 @@ body {
 }
 
 .content {
+  line-height: 23px;
   font-size: 25px;
 }
 
@@ -682,4 +683,8 @@ nav.nav-mobile div:not(.nav-line) {
   100% {
     background-position: 0% 7%;
   }
+}
+
+.scroll-link {
+  cursor: pointer;
 }

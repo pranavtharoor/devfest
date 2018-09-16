@@ -185,7 +185,7 @@ nav div:not(.nav-line):hover {
   transform: translate(6px, -4px) rotate(-45deg);
 }
 
-#about {
+#about, #install {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -194,7 +194,7 @@ nav div:not(.nav-line):hover {
   font-size: 25px;
 }
 
-#about > div {
+#about > div, #install > div {
   width: 80%;
 }
 
@@ -236,7 +236,7 @@ nav div:not(.nav-line):hover {
 }
 
 .heart {
-  font-size: 30px;
+  font-size: 35px;
   display: inline-block;
   color: #ea4335;
   animation: heartbeat 1.5s infinite;
@@ -360,11 +360,13 @@ nav.nav-mobile div:not(.nav-line) {
   font-size: 20px;
 }
 
+#install .title,
 #about .title {
   font-size: 30px;
   margin-bottom: 30px;
 }
 
+#install .content,
 #about .content {
   font-size: 20px;
 }
@@ -403,6 +405,12 @@ nav.nav-mobile div:not(.nav-line) {
   #speakers {
     background: transparent;
     transform: none !important;
+  }
+
+  #install .content,
+  #about .content {
+    font-size: 12px;
+    line-height: 13px;
   }
 
   #sessions .card-left,
@@ -458,13 +466,10 @@ nav.nav-mobile div:not(.nav-line) {
     font-size: 15px;
   }
 
+  #install .title,
   #about .title {
     font-size: 30px;
     margin-bottom: 30px;
-  }
-
-  #about .content {
-    font-size: 16px;
   }
 
   .gdg-logo img {

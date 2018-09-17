@@ -1,5 +1,5 @@
 window.onload = () => {
-  [...document.querySelectorAll('.scroll-link'), ...document.querySelector('nav').children].forEach(el => el.addEventListener('click', e => {
+  [...document.querySelectorAll('.scroll-link'), ...document.querySelectorAll('nav > div')].forEach(el => el.addEventListener('click', e => {
     if (sections.filter(section => section.id === e.target.getAttribute('data-scroll')).length > 0) {
       sections
         .filter(section => section.id === e.target.getAttribute('data-scroll'))[0]

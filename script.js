@@ -75,6 +75,8 @@ window.onload = () => {
     }
   });
   window.addEventListener('wheel', function (e) {
+    if(window.innerWidth <= 800)
+      return;
     document.querySelector('.menu-button').classList.remove('open');
     document.querySelector('.light-box').style.zIndex = 0;
     document.querySelector('.light-box').style.opacity = 0;
@@ -119,6 +121,8 @@ window.onload = () => {
     sections[currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   });
   window.addEventListener('touchmove', e => {
+    if([...e.target.classList].includes('card-right') || [...e.target.parentNode.classList].includes('card-right') || [...e.target.parentNode.parentNode.classList].includes('card-right'))
+      return;
     document.querySelector('.menu-button').classList.remove('open');
     document.querySelector('.light-box').style.zIndex = 0;
     document.querySelector('.light-box').style.opacity = 0;

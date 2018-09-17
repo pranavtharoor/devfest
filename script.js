@@ -140,12 +140,12 @@ window.onload = () => {
       return;
     if (change < 0 && currentSection - 1 >= 0 && !scrolled) {
       scrolled = true;
-      setTimeout(() => { scrolled = false }, 500);
-      sections[--currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      setTimeout(() => { scrolled = false }, 800);
+      sections[--currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" });
     } else if (change > 0 && currentSection + 1 < sections.length && !scrolled) {
       scrolled = true;
-      setTimeout(() => { scrolled = false }, 500);
-      sections[++currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      setTimeout(() => { scrolled = false }, 800);
+      sections[++currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "start" });
     }
     [...document.querySelector('.menu-button').children].forEach(el => {
       el.style.backgroundColor = !!sections[currentSection].slide ? 'var(--color-light)' : 'var(--color-dark)';

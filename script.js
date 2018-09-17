@@ -112,13 +112,26 @@ window.onload = () => {
       });
   });
 
-  var startY, startX;
+  var startY, startX, sc = 0;
   window.addEventListener('touchstart', e => {
     startY = e.changedTouches[0].pageY;
     startX = e.changedTouches[0].pageX;
   });
   window.addEventListener('resize', () => {
     sections[currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  });
+  window.addEventListener('touchend', e => {
+    var card = null;
+    if([...e.target.classList].includes('card-right'))
+      card = e.target;
+    else if([...e.target.parentNode.classList].includes('card-right'))
+      card = e.target.parentNode;
+    else if([...e.target.parentNode.parentNode.classList].includes('card-right'))
+      card = e.target.parentNode.parentNode;
+    if(!!card && sc !== 0)
+      sc = 0;
+    else if(!!card)
+      sc++;
   });
   window.addEventListener('touchmove', e => {
     var card = null;
@@ -136,7 +149,7 @@ window.onload = () => {
     var changeY = startY - e.changedTouches[0].pageY;
     var changeX = startX - e.changedTouches[0].pageX;
     var change = Math.abs(changeX) > Math.abs(changeY) ? changeX : changeY;
-    if(!!card && (change > 0 && card.scrollHeight - card.scrollTop - card.clientHeight > 0 || change < 0 && card.scrollTop > 0))
+    if(!!card && (change > 0 && card.scrollHeight - card.scrollTop - card.clientHeight > 0 || change < 0 && card.scrollTop > 0 || sc === 0))
       return;
     if (change < 0 && currentSection - 1 >= 0 && !scrolled) {
       scrolled = true;

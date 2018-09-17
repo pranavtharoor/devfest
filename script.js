@@ -121,16 +121,23 @@ window.onload = () => {
     sections[currentSection].element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   });
   window.addEventListener('touchmove', e => {
-    if([...e.target.classList].includes('card-right') || [...e.target.parentNode.classList].includes('card-right') || [...e.target.parentNode.parentNode.classList].includes('card-right'))
-      return;
+    var card = null;
+    if([...e.target.classList].includes('card-right'))
+      card = e.target;
+    else if([...e.target.parentNode.classList].includes('card-right'))
+      card = e.target.parentNode;
+    else if([...e.target.parentNode.parentNode.classList].includes('card-right'))
+      card = e.target.parentNode.parentNode;
     document.querySelector('.menu-button').classList.remove('open');
     document.querySelector('.light-box').style.zIndex = 0;
     document.querySelector('.light-box').style.opacity = 0;
     document.querySelector('nav').style.width = 0;
     document.querySelectorAll('.gdg-logo img').forEach(el => el.style.transform = 'none');
-    var changeY = startY - e.changedTouches[0].pageY
-    var changeX = startX - e.changedTouches[0].pageX
-    var change = Math.abs(changeX) > Math.abs(changeY) ? changeX : changeY
+    var changeY = startY - e.changedTouches[0].pageY;
+    var changeX = startX - e.changedTouches[0].pageX;
+    var change = Math.abs(changeX) > Math.abs(changeY) ? changeX : changeY;
+    if(!!card && (change > 0 && card.scrollHeight - card.scrollTop - card.clientHeight > 0 || change < 0 && card.scrollTop > 0))
+      return;
     if (change < 0 && currentSection - 1 >= 0 && !scrolled) {
       scrolled = true;
       setTimeout(() => { scrolled = false }, 500);

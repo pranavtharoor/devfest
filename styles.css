@@ -399,6 +399,12 @@ nav.nav-mobile div:not(.nav-line) {
     padding: 10px;
   }
 
+  .scroll-down:hover {
+    background-color: transparent !important;
+    user-select: none;
+    transition: none;
+  }
+
   #landing .arrow-down {
     transform: translateY(-60px);
   }
@@ -555,7 +561,7 @@ nav.nav-mobile div:not(.nav-line) {
   margin: -10px;
   transform: scale(0.94);
   color: #666666;
-  padding: 30px;
+  padding: 20px;
   font-size: 15px;
 }
 
